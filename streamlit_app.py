@@ -8,6 +8,7 @@ from itertools import islice
 
 
 st.set_page_config(page_title="Ações Dashboard", page_icon=":money_with_wings:", layout="wide")
+st.html('styles.html')
 
 
 def batched(iterable, n_cols):
@@ -239,7 +240,9 @@ def display_overview(ticker_df):
             )
         },
         hide_index=True,
-        height=250)
+        height=250,
+        use_container_width=True
+    )
 
 
 @st.cache_data
@@ -330,9 +333,13 @@ def display_symbol_history(ticker_df, history_dfs):
     left_chart, right_indicator = st.columns([1.5, 1])
 
     with left_chart:
+        st.html('<span class="column_plotly"></span>')
         st.plotly_chart(f_candle, use_container_width=True)
 
     with right_indicator:
+        st.html('<span class="column_indicator"></span>')
+        st.subheader("Period Metrics")
+
         left_column, right_column = st.columns(2)
 
         with left_column:
@@ -486,19 +493,15 @@ def download_data(tickers, start_date, end_date=datetime.now(), period="1d"):
     return ticker_df, history_dfs
 
 
-st.title("Ações - Dashboard")
+st.html('<h1 class="title">Ações - Dashboard</h1>')
 
 # Dicionário de tickers
 dict_tickers = {
-    'ITAUSA': 'ITSA4.SA',
     'BANCO DO BRASIL': 'BBAS3.SA',
-    'BANCO BRADESCO': 'BBDC4.SA',
     'COPASA': 'CSMG3.SA',
     'SANEPAR': 'SAPR11.SA',
     'TAESA': 'TAEE11.SA',
-    'CEMIG': 'CMIG4.SA',
     'BB SEGURIDADE': 'BBSE3.SA',
-    'PORTO SEGURO': 'PSSA3.SA',
     'PETROBRAS': 'PETR4.SA'
 }
 
