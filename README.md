@@ -27,7 +27,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-### Abaixo segue a definição para cada uma das 17 variáveis:
+### Abaixo segue a definição para cada uma das 11 variáveis:
 - open - Preço de abertura da ação no início do período de negociação (por exemplo, início do dia).
 - oigh - O preço mais alto atingido pela ação durante o período de negociação.
 - low - O preço mais baixo atingido pela ação durante o período de negociação.
